@@ -1,0 +1,19 @@
+name:build
+on:workflow_dispatch
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkitarm:latest
+    - name: Build
+      run: make 
+    - name: Upload 3DSX
+      uses: actions/upload-artifact@v2
+      with: 
+        name: 3DSX
+        path: build/3dsx
+    - name: Upload CIA
+      uses: actions/upload-artifact@v2
+      with: 
+        name: CIA
+        path: build/CIA
