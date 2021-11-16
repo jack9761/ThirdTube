@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: docker://devkitpro/devkitarm:latest
     - name: Build
-      run: make Makefile
+      run: make Makefile all
     - name: Upload 3DSX
       uses: actions/upload-artifact@v2
       with: 
